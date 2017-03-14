@@ -1,5 +1,5 @@
 /**
- * promise 基本用法
+ * Promise.race
  */
 let delay = (ms, rejected) => {
     return new Promise(function (resolve, reject) {
@@ -14,14 +14,6 @@ let delay = (ms, rejected) => {
     });
 }
 
-delay(5000,'fasdfasd').then(function (ms) {
-    console.log(ms + ' ms later!');
-}, (value) => {
-    console.log('value:', value);
-})
-delay(5000,'fasdfasd').then((ms) => {
-    console.log(ms + ' ms later!');
-}).catch((value) => {
-    console.log('value:', value);
+Promise.race([delay(1000),delay(1000),delay(5000,1)]).then((ms) => {
+    console.log(ms)
 });
-

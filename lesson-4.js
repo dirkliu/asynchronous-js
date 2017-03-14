@@ -1,5 +1,5 @@
 /**
- * promise 基本用法
+ * catch
  */
 let delay = (ms, rejected) => {
     return new Promise(function (resolve, reject) {
@@ -14,14 +14,14 @@ let delay = (ms, rejected) => {
     });
 }
 
-delay(5000,'fasdfasd').then(function (ms) {
-    console.log(ms + ' ms later!');
-}, (value) => {
-    console.log('value:', value);
+delay(4000).then((ms) => {
+    console.log(ms);
+    return '1111'
+}).then((msg)=>{
+    console.log(msg);
+    return 'aaaaa'+X
+}).catch(function(e){
+    console.log(e)
+}).then(function(msg){
+    console.log(msg)
 })
-delay(5000,'fasdfasd').then((ms) => {
-    console.log(ms + ' ms later!');
-}).catch((value) => {
-    console.log('value:', value);
-});
-
